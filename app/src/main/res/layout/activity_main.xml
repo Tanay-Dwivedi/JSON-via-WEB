@@ -36,11 +36,11 @@
 
     <Button
         android:id="@+id/fetchBtn"
-        android:layout_width="125dp"
+        android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_marginBottom="25dp"
         android:text="Fetch Data"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:backgroundTint="#F4AAAA"
         app:layout_constraintBottom_toBottomOf="parent"
