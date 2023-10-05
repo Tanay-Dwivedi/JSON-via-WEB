@@ -1,0 +1,39 @@
+
+1. The code is part of an Android app named "jsonviaweb" that fetches and displays JSON data from a web API.
+
+2. It uses ViewBinding for efficient layout inflation and handles UI elements.
+
+3. The main activity extends `AppCompatActivity`.
+
+4. The `onCreate` method is called when the activity is created:
+   - It inflates the layout using ViewBinding.
+   - Initializes the user interface components.
+   - Sets an `OnClickListener` for a button (with id `fetchBtn`) that triggers data fetching.
+
+5. The `initialUser` method is used to initialize the user interface components:
+   - It creates an ArrayList and ArrayAdapter for displaying data in a ListView.
+   - Associates the ArrayAdapter with a custom layout (`R.layout.item_custom`) and TextView (`R.id.item_text`) for the ListView.
+
+6. The `fetchData` class is a custom thread that performs the following tasks:
+   - Shows a progress dialog with a "Fetched successfully" message.
+   - Attempts to fetch JSON data from a specified URL (`https://api.npoint.io/ad7418864a4c75a029ac`).
+   - Opens an HTTPS connection to the URL.
+   - Reads data from the API response using a `BufferedReader`.
+
+7. The fetched JSON data is stored in the `data` variable.
+
+8. The code attempts to parse the JSON data if it's not empty:
+   - It creates a JSONObject and extracts a JSONArray named "employeesList."
+   - The code clears the existing ArrayList (`al`) to prepare for new data.
+
+9. It then iterates through the JSON array and extracts employee details (name, age, and city) and adds them to the ArrayList.
+
+10. Exception handling is in place for potential issues:
+    - MalformedURLException is handled by printing the stack trace.
+    - IOException and JSONException are caught, and a runtime exception is thrown for both.
+
+11. After successfully fetching and processing the data, the code posts a runnable to the main thread's handler to perform UI updates.
+
+12. On the main thread, it dismisses the progress dialog if it's showing.
+
+13. It calls `arrayAdapter.notifyDataSetChanged()` to refresh the ListView with the fetched data.

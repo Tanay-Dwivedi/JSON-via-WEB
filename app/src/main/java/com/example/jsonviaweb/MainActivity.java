@@ -3,17 +3,12 @@ package com.example.jsonviaweb;
 import android.app.ProgressDialog;
 import android.os.*;
 import android.widget.ArrayAdapter;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.jsonviaweb.databinding.ActivityMainBinding;
-
 import org.json.*;
-
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
-
 import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
@@ -77,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("employeesList");
                     al.clear();
 
-                    // Extract and add employee names to the ArrayList
+                    // Extract and add employee names, ages, and cities to the ArrayList
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
                         al.add(details.getString("name") + "\n" + details.getString("age") + "\n" + details.getString("city"));
