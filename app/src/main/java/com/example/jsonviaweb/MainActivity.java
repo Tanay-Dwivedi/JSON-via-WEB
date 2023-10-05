@@ -69,9 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 String line;
 
                 // Read data from the API response
-                while ((line = bufferedReader.readLine()) != null) {
-                    data += line;
-                }
+                while ((line = bufferedReader.readLine()) != null) data += line;
 
                 // Parse JSON data if it's not empty
                 if (!data.isEmpty()) {
@@ -82,8 +80,7 @@ public class MainActivity extends AppCompatActivity {
                     // Extract and add employee names to the ArrayList
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
-                        String name = details.getString("name");
-                        al.add(name);
+                        al.add(details.getString("name") + "\n" + details.getString("age") + "\n" + details.getString("city"));
                     }
                 }
 
